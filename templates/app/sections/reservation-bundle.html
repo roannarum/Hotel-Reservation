@@ -1,0 +1,63 @@
+<section class="banner_area" style="padding-top: 50px">
+    <div class="booking_table d_flex align-items-center">
+    </div>
+    <div class="hotel_booking_area position" style="padding-bottom: 40px">
+        <div class="container">
+            {% include 'app/sections/reservation-card.html' %}
+        </div>
+    </div>
+</section>
+
+
+
+<section class="accomodation_area section_gap">
+    <div class="container">
+        <div class="section_title text-center">
+            <h2 class="title_color">Tipe Kamar</h2>
+        </div>
+        <div class="row accomodation_two">
+            {% for i in range(0,rooms|length > 0) %}
+     <div class="col-md-12">
+                        <div class="card mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{ url_for('static', filename='image/room1.jpg') }}" alt="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h1 class="card-title">{{  rooms[i]['title'] }}</h1>
+                                        <p class="card-text">{{  rooms[i]['address'] }}</p>
+                                        <p class="card-text">
+                                            {% set list1 = rooms[i]['amenities'].split(',') %}
+                                            {% for item in list1  %}
+                                                <span class="btn btn-sm btn-primary">{{ item }}</span>
+                                            {% endfor %}
+                                        </p>
+                                        <h3>Rp. {{  rooms[i]['price'] }} <small>/night</small></h1>
+                                        <p class="card-text"><small class="text-muted">Tersisa : {{  rooms[i]['kapasitas'] }}</small></p>
+                                       <div class="hotel_img">
+                                        {% if session.login %}
+                                            <a href="{{ url_for('add_to_basket', room=rooms[i]['id']) }}" class="btn theme_btn button_hover">Tambah</a>
+                                        {% else %}
+                                            <span data-toggle="modal" data-target="#loginModal" class="btn theme_btn button_hover disabled btn_disabled_add">Tambah</span>
+                                        {% endif %}
+                                    </div>
+                                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(".btn_disabled_add").on('click',function () {
+            alert("Untuk membuat reservasi, Anda harus login terlebih dahulu!");
+        })
+    })
+</script>

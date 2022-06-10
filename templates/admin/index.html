@@ -1,0 +1,23 @@
+{% extends 'admin/base.html' %}
+{% block body %}
+    <div class="row p-5">
+        <div class="col-md-3 card text-white bg-dark m-4">
+            <div class="card-header">Jumlah Kamar</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ data['hotel'] }}</h5>
+            </div>
+        </div>
+        <div class="col-md-3 card text-white bg-info m-4">
+            <div class="card-header">Jumlah Pelanggan</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ data['user'] }}</h5>
+            </div>
+        </div>
+        <div class="col-md-3 card bg-light m-4">
+            <div class="card-header">Jumlah Total Reservasi</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ data['reservation'] }}</h5>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="{{ url_for('static', filename='image/logoo.png') }}" type="image/png">
+        <title>{% block title %} Arumstay{% endblock %}</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendors/linericon/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendors/owl-carousel/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendors/nice-select/css/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='vendors/owl-carousel/owl.carousel.min.css') }}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+        <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendors/owl-carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendors/nice-select/js/jquery.nice-select.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/stellar.js') }}"></script>
+        <script src="{{ url_for('static', filename='vendors/lightbox/simpleLightbox.min.js') }}"></script>
+    </head>
+    <body>
+        {% include 'app/header.html' %}
+        {% block body %} {% endblock %}
+        {% include 'app/footer.html' %}
+    </body>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</html>

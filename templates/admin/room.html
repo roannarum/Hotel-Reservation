@@ -1,0 +1,64 @@
+{% extends 'admin/base.html' %}
+{% block body %}
+
+    <form class="p-5" action="{{ url_for('a_room') }}" method="POST">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">Tipe kamar</label>
+                <input type="text" name="name" class="form-control" id="inputEmail4" autocomplete="off">
+            </div>
+            <!-- <div class="form-group col-md-4">
+                <label for="inputState">Room</label>
+                <select id="inputState" class="form-control" name="area">
+                    <option selected>Pilih...</option>
+                    {% for i in range(0,areas|length) %}
+                        <option value="{{ areas[i]['id'] }}">{{ areas[i]['title'] }}</option>
+                    {% endfor %}
+
+                </select>
+            </div> -->
+            <div class="form-group col-md-4">
+                <label for="inputEmail4">amenities</label>
+                <input type="text" name="amenities" class="form-control" id="inputEmail4" autocomplete="off">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Price</label>
+            <input type="text" name="price" class="form-control" id="inputAddress" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">kapasitas</label>
+            <input type="text" name="kapasitas" class="form-control" id="inputAddress2" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary">Menyimpan</button>
+    </form>
+
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tipe Kamar</th>
+                <th scope="col">Amenities</th>
+                <th scope="col">Price</th>
+                <th scope="col">Kapasitas</th>
+                <th scope="col">Hapus</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in range(0,rooms|length) %}
+            <tr>
+                <th scope="row">{{ rooms[i]['id'] }}</th>
+                <td>{{ rooms[i]['title'] }}</td>
+                <td>{{ rooms[i]['amenities'] }}</td>
+                <td>{{ rooms[i]['price'] }}</td>
+                <td>{{ rooms[i]['kapasitas'] }}</td>
+                <th scope="col"><a href="{{ url_for('delete_room',id=rooms[i]['id']) }}"><i class="fa fa-close"></i></a></th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <hr>
+
+{% endblock %}

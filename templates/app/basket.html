@@ -1,0 +1,74 @@
+{% extends 'app/base.html' %}
+{% block body %}
+    <section class="blog_area">
+    <div class="container">
+    {% if session.basket %}
+        <div class="row">
+            <div class="col-md-12 pt-5"><h1>Checkout</h1></div>
+            <div class="col-lg-8">
+                <div class="blog_left_sidebar">
+                    <article class="row blog_item">
+                        <div class="col-md-3">
+                            <div class="blog_info text-right">
+                                <ul class="blog_meta list_style">
+                                    <li><a href="#">{{ session.h_title }}<i class="lnr lnr-apartment"></i></a></li>
+                                    <li><a href="#">{{ session.checkin }}<i class="lnr lnr-calendar-full"></i></a></li>
+                                    <li><a href="#">{{ session.checkout }}<i class="lnr lnr-calendar-full"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="blog_post">
+                                <img src="{{ url_for('static', filename='image/room2.jpg') }}" alt="">
+                                <div class="blog_details">
+                                    <a href="#"><h2>{{ session.h_title }}</h2></a>
+                                    <!-- <p><img src="{{ session.h_img }}" alt=""></p> -->
+                                    <p>
+                                        {{ session.h_address }}
+                                        <br>
+                                        {% set list1 = session.h_amenities.split(',') %}
+                                        {% for item in list1  %}
+                                            <span class="btn btn-sm btn-primary">{{ item }}</span>
+                                        {% endfor %}
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="blog_left_sidebar">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget author_widget">
+                        <h4>{{ session.h_title }}</h4>
+                        <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
+                    </aside>
+                    <div class="br"></div>
+                    <aside class="single_sidebar_widget author_widget">
+                        <h4 class="text-left">Harga per malam</h4>
+                        <br>
+                        <h2>Rp. {{session.r_price}}</h2>
+                    </aside>
+                    <div class="br"></div>
+                    <aside class="single_sidebar_widget author_widget">
+                        <a href="{{ url_for('basket_clear') }}" class="view_btn button_hover">Cancel</a>
+                        <a href="{{ url_for('create_reservation') }}" class="view_btn button_hover complete_basket">Continue</a>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    </div>
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            $(".complete_basket").on('click',function () {
+            })
+        })
+    </script>
+{% endblock %}
